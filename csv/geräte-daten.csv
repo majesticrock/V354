@@ -1,2 +1,2 @@
-{$L$ / mH};{$C$ / nF};{$R_1$ / \Omega};{$R_2$ / \Omega}
+\multicolumn{2}{c}{$L$ / mH};\multicolumn{2}{c}{$C$ / nF};\multicolumn{2}{c}{$R_1$ / \Omega};\multicolumn{2}{c}{$R_2$ / \Omega}
 3.53;0.03;5.015;0.015;30.3;0.1;271.6;0.3

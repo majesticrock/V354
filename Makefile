@@ -1,11 +1,17 @@
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: plot.py matplotlibrc header-matplotlib.tex | build
-	TEXINPUTS=$$(pwd): python plot.py
+build/plot-amplitude.pdf: plot-amplitude.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plot-amplitude.py
+
+build/plot-guete.pdf: plot-guete.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plot-guete.py
+
+build/plot-phase.pdf: plot-phase.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python plot-phase.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/plot.pdf
+build/main.pdf: build/plot-amplitude.pdf build/plot-guete.pdf build/plot-phase.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \

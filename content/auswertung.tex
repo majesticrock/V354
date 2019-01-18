@@ -1,2 +1,85 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\input{../content/zeit-amplitude.tex}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/plot-amplitude.pdf}
+    \label{fig:zeit-amplitude}
+    \caption{Plot und Fit der Messwerte der Messung der Amplitude in Zeitabhängigkeit.}
+\end{figure}
+
+\begin{center}
+    $a = (1.131 \pm 0.008) \cdot 10^{4} \frac{\ln(\symup{V})}{\symup{s}}$
+
+    $b = (2.23 \pm 0.01) \ln(\symup{V})$
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{../content/geraetedaten.tex}
+
+Errechneter $R_\text{ap}$ Wert
+
+\begin{center}
+    $R_\text{Theorie} = (1677 \pm 8)$ $\symup{\Omega}$ 
+\end{center}
+
+Gemessener Wert
+
+\begin{center}
+    $R_\text{ap} = (1355 \pm 5)$ $\symup{\Omega}$
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{../content/var-freq.tex}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/plot-guete.pdf}
+    \label{fig:guete}
+    \caption{Plot und Theoriekurve des Amplitudenverhältnis gegen die Frequenz aufgetragen.}
+\end{figure}
+
+\begin{center}
+    $q_\text{exp} = 2.56$
+\end{center}
+
+\begin{center}
+    $q_\text{theo} = 3.09 \pm 0.01$
+\end{center}
+
+\begin{equation}
+    \Delta q_\text{theo} = \sqrt{\cdot \frac{L}{C}} \cdot \sqrt{ \bigg( \frac{1}{R^2} \Delta R \bigg)^2 + \bigg(\frac{1}{2RC} \Delta L \bigg)^2 + \bigg(\frac{L}{2RC^2} \Delta C \bigg)^2}
+\end{equation}
+
+\begin{center}
+    $\omega_+ = (2.79 \pm 0.01) \cdot 10**{5}$ $\frac{1}{s}$
+
+    $\omega_- = (2.022 \pm 0.008) \cdot 10**{5}$ $\frac{1}{s}$
+\end{center}
+
+Der Fehler nach Gauß errechnet sich dabei nach
+
+\begin{equation}
+    \Delta \omega_{+,-} = \sqrt{\bigg( \frac{\partial \omega_{+,-}}{\partial C} \cdot \Delta C \bigg)^2 + \bigg( \frac{\partial \omega_{+,-}}{\partial L} \cdot \Delta L \bigg)^2 + \bigg( \frac{\partial \omega_{+,-}}{\partial R} \cdot \Delta R \bigg)^2}, 
+\end{equation}
+
+wobei die einzelnen partiellen Ableitungen im Folgenden aufgeführt sind:
+
+\begin{center}
+    $\bigg( \frac{\partial \omega_{+,-}}{\partial C} \bigg)^2 = \Bigg( \dfrac{1}{2L\sqrt{\frac{1}{LC}+\frac{R^2}{4L^2}}C^2} \Bigg)^2$
+
+    $\bigg( \frac{\partial \omega_{+,-}}{\partial R} \bigg)^2 = \Bigg( \dfrac{R}{4L^2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}} \pm \dfrac{1}{2L} \Bigg)^2$
+
+    $\bigg( \frac{\partial \omega_{+,-}}{\partial L} \bigg)^2 = \Bigg( \mp \dfrac{R}{2L^2}+\dfrac{-\frac{1}{CL^2}-\frac{R^2}{2L^3}}{2\sqrt{\frac{1}{CL}+\frac{R^2}{4L^2}}} \Bigg)^2$.
+\end{center}
+
+\begin{figure}
+    \centering
+    \includegraphics{build/plot-phase.pdf}
+    \label{fig:phase}
+    \caption{Plot und Theoriekurve des Phasenunterschiedes gegen die Frequenz aufgetragen.}
+\end{figure}
