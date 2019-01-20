@@ -1,38 +1,79 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Gedämpfte harmonische Schwingung}
+
+Zunächst werden die Daten aus \autoref{tab:zeit-amplitude} geplottet, wobei die Ampltiude logarithmisiert werden.
+Über diese wird ein Fit der Form
+
+\begin{equation}
+    ln(U_C) = ax + b
+\end{equation}
+
+gelegt. Der entstehende Graph ist in \autoref{fig:zeit-amplitude} zu sehen. 
+
 \input{../content/zeit-amplitude.tex}
 
 \begin{figure}
     \centering
     \includegraphics{build/plot-amplitude.pdf}
     \label{fig:zeit-amplitude}
-    \caption{Plot und Fit der Messwerte der Messung der Amplitude in Zeitabhängigkeit.}
+    \caption{Plot und Fit der logarithmisierten Ampltiude in Abhängikeit der Zeit.}
 \end{figure}
 
-\begin{center}
-    $a = (1.131 \pm 0.008) \cdot 10^{4} \frac{\ln(\symup{V})}{\symup{s}}$
+Die entsprechenden Parameter werden mittels Python 3.7.0 als
 
-    $b = (2.23 \pm 0.01) \ln(\symup{V})$
+\begin{center}
+    $a = (1,\~131 \pm 0,\~008) \cdot 10^{4} \frac{\ln(\symup{V})}{\symup{s}}$
+
+    $b = (2,\~23 \pm 0,\~01) \ln(\symup{V})$
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TODO: Gleichung
+bestimmt. Aus GLEICHUNG folgt direkt, dass 
+
+\begin{center}
+    $R = a \cdot 2L = (79.8 \pm 0.9)$ $\Omega$
+\end{center}
+
+gilt. Der zugehörige Fehler nach Gauß berechnet sich dabei nach
+
+\begin{equation}
+    \Delta R = 2 \sqrt{ \bigg( L \Delta a \bigg)^2 + \bigg( a \delta L \bigg)^2 }.
+\end{equation}
+
+Der Wert für die Induktivität der Spule $L$ wurde angegeben und ist mit weiteren angegebenen Gerätedaten in \autoref{ŧab:geraetedaten} zu finden.
 
 \input{../content/geraetedaten.tex}
 
-Errechneter $R_\text{ap}$ Wert
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Aperiodischer Grenzfall}
+
+%TODO: Gleichung
+Nach GLEICHUNG ergibt sich der errechnete Wert für den Widerstand, mit dem der aperiodische Grenzfall erreicht wird, als
 
 \begin{center}
-    $R_\text{Theorie} = (1677 \pm 8)$ $\symup{\Omega}$ 
+    $R_\text{Theorie} = (1678 \pm 8)$ $\symup{\Omega}$,
 \end{center}
 
-Gemessener Wert
+wobei sich der Fehler nach Gauß aus %R = 2*sqrt(L/C)
+
+\begin{equation}
+    \Delta R_\text{ap} = \sqrt{ \frac{C}{L} \cdot \bigg( \frac{L}{C^2} \Delta C \bigg)^2 + \frac{C}{L} \cdot \bigg( \frac{1}{C} \Delta L \bigg)^2 }
+\end{equation}
+
+berechnet.
+
+Der durch Variation des Widerstandes Wert wird als
 
 \begin{center}
     $R_\text{ap} = (1355 \pm 5)$ $\symup{\Omega}$
 \end{center}
 
+bestimmt.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Bestimmung der Güte mittels variabler Frequenz}
 
 \input{../content/var-freq.tex}
 
@@ -44,11 +85,11 @@ Gemessener Wert
 \end{figure}
 
 \begin{center}
-    $q_\text{exp} = 2.56$
+    $q_\text{exp} = 2,\~56$
 \end{center}
 
 \begin{center}
-    $q_\text{theo} = 3.09 \pm 0.01$
+    $q_\text{theo} = 3,\~09 \pm 0,\~01$
 \end{center}
 
 \begin{equation}
@@ -56,9 +97,9 @@ Gemessener Wert
 \end{equation}
 
 \begin{center}
-    $\omega_+ = (2.79 \pm 0.01) \cdot 10**{5}$ $\frac{1}{s}$
+    $\omega_+ = (2,\~79 \pm 0,\~01) \cdot 10^{5}$ $\frac{1}{\symup{s}}$
 
-    $\omega_- = (2.022 \pm 0.008) \cdot 10**{5}$ $\frac{1}{s}$
+    $\omega_- = (2,\~022 \pm 0,\~008) \cdot 10^{5}$ $\frac{1}{\symup{s}}$
 \end{center}
 
 Der Fehler nach Gauß errechnet sich dabei nach
@@ -76,6 +117,18 @@ wobei die einzelnen partiellen Ableitungen im Folgenden aufgeführt sind:
 
     $\bigg( \frac{\partial \omega_{+,-}}{\partial L} \bigg)^2 = \Bigg( \mp \dfrac{R}{2L^2}+\dfrac{-\frac{1}{CL^2}-\frac{R^2}{2L^3}}{2\sqrt{\frac{1}{CL}+\frac{R^2}{4L^2}}} \Bigg)^2$.
 \end{center}
+
+%- = 27kHz      + = 43kHz
+
+Um die experimentellen Werte zu bestimmen, wird die Frequenz gemessen, an denen $U_C \approx 11.8$ V gilt. Diese werden als
+
+\begin{center}
+    $\omega_- = 1,\~69 \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+
+    $\omega_+ = 2,\~70 \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+\end{center}
+
+bestimmt.
 
 \begin{figure}
     \centering
