@@ -17,8 +17,8 @@ gelegt. Der entstehende Graph ist in \autoref{fig:zeit-amplitude} zu sehen.
 \begin{figure}
     \centering
     \includegraphics{build/plot-amplitude.pdf}
-    \label{fig:zeit-amplitude}
     \caption{Plot und Fit der logarithmisierten Ampltiude in Abhängikeit der Zeit.}
+    \label{fig:zeit-amplitude}
 \end{figure}
 
 Die entsprechenden Parameter werden mittels Python 3.7.0 als
@@ -33,16 +33,16 @@ Die entsprechenden Parameter werden mittels Python 3.7.0 als
 bestimmt. Aus GLEICHUNG folgt direkt, dass 
 
 \begin{center}
-    $R = a \cdot 2L = (79.8 \pm 0.9)$ $\Omega$
+    $R = a \cdot 2L = (79.8 \pm 0.9)$ $\symup{\Omega}$
 \end{center}
 
 gilt. Der zugehörige Fehler nach Gauß berechnet sich dabei nach
 
 \begin{equation}
-    \Delta R = 2 \sqrt{ \bigg( L \Delta a \bigg)^2 + \bigg( a \delta L \bigg)^2 }.
+    \Delta R = 2 \sqrt{ \bigg( L \cdot \Delta a \bigg)^2 + \bigg( a \cdot \Delta L \bigg)^2 }.
 \end{equation}
 
-Der Wert für die Induktivität der Spule $L$ wurde angegeben und ist mit weiteren angegebenen Gerätedaten in \autoref{ŧab:geraetedaten} zu finden.
+Der Wert für die Induktivität der Spule $L$ wurde angegeben und ist mit weiteren angegebenen Gerätedaten in \autoref{tab:geraetedaten} zu finden.
 
 \input{../content/geraetedaten.tex}
 
@@ -59,7 +59,7 @@ Nach GLEICHUNG ergibt sich der errechnete Wert für den Widerstand, mit dem der 
 wobei sich der Fehler nach Gauß aus %R = 2*sqrt(L/C)
 
 \begin{equation}
-    \Delta R_\text{ap} = \sqrt{ \frac{C}{L} \cdot \bigg( \frac{L}{C^2} \Delta C \bigg)^2 + \frac{C}{L} \cdot \bigg( \frac{1}{C} \Delta L \bigg)^2 }
+    \Delta R_\text{ap} = \sqrt{ \frac{C}{L} \cdot \bigg( \frac{L}{C^2} \cdot \Delta C \bigg)^2 + \frac{C}{L} \cdot \bigg( \frac{1}{C} \cdot \Delta L \bigg)^2 }
 \end{equation}
 
 berechnet.
@@ -75,64 +75,101 @@ bestimmt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bestimmung der Güte mittels variabler Frequenz}
 
+%TODO: Gleichung
+Die gemessenen Werte sind in \autoref{tab:var-freq} zu finden. Diese werden zur Veranschaulichung in einem Plot aufgetragen, dabei werden die Frequenzen $f$ nach $\omega = 2 \pi f$ in Kreisfrequenzen umgerechnet.
+Die Theoriekurve, die sich nach GLEICHUNG berechnet, wird in diesem Plot ebenfalls aufgetragen.
+
 \input{../content/var-freq.tex}
 
 \begin{figure}
     \centering
     \includegraphics{build/plot-guete.pdf}
-    \label{fig:guete}
     \caption{Plot und Theoriekurve des Amplitudenverhältnis gegen die Frequenz aufgetragen.}
+    \label{fig:guete}
 \end{figure}
+
+Aus diesen Daten lässt sich die Güte $q_\text{exp}$ durch Ablesen als
 
 \begin{center}
     $q_\text{exp} = 2,\~56$
 \end{center}
 
+%TODO: Gleichung
+bestimmen. Der zugehörige Theoriewert berechnet sich nach GLEICHUNG als
+
 \begin{center}
-    $q_\text{theo} = 3,\~09 \pm 0,\~01$
+    $q_\text{theo} = 3,\~09 \pm 0,\~01$.
 \end{center}
 
+Der Fehler nach Gauß berechnet sich dabei nach
+
 \begin{equation}
-    \Delta q_\text{theo} = \sqrt{\cdot \frac{L}{C}} \cdot \sqrt{ \bigg( \frac{1}{R^2} \Delta R \bigg)^2 + \bigg(\frac{1}{2RC} \Delta L \bigg)^2 + \bigg(\frac{L}{2RC^2} \Delta C \bigg)^2}
+    \Delta q_\text{theo} = \sqrt{\cdot \frac{L}{C}} \cdot \sqrt{ \bigg( \frac{1}{R^2} \cdot \Delta R \bigg)^2 + \bigg(\frac{1}{2RC} \cdot \Delta L \bigg)^2 + \bigg(\frac{L}{2RC^2} \cdot \Delta C \bigg)^2}.
 \end{equation}
 
-\begin{center}
-    $\omega_+ = (2,\~79 \pm 0,\~01) \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+Die Resonanzfrequenz wird nach GLEICHUNG als
 
-    $\omega_- = (2,\~022 \pm 0,\~008) \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+\begin{center}
+    $\omega_\text{res} = (2,\~314 \pm 0,\~001) \cdot 10^{5}$ $\frac{1}{s}$
+\end{center}
+
+bestimmt, wobei sich der zugehörige Fehler nach Gauß nach
+
+\begin{equation}
+    \Delta \omega_\text{res} = \dfrac{1}{\sqrt{\frac{1}{LC} - \frac{R^2}{2L^2}}} \cdot \sqrt{ \bigg( \frac{R}{2L^2} \cdot \Delta R \bigg)^2 + \bigg( \frac{L - CR^2}{2CL^3} \cdot \Delta L \bigg)^2 + \bigg( \frac{1}{2LC^2} \cdot \Delta C \bigg)^2 }
+\end{equation}
+
+berechnet. Der zur experimentellen Bestimmung der Resonanzfrequenz wird die Stelle der maximalen Ampltiude abgelesen.
+Diese beträgt
+
+\begin{center}
+    $\omega_\text{res} = 2,\~2 \cdot 10^{5}$ $\frac{1}{\symup{s}}$.
+\end{center}
+
+
+%TODO: Gleichung
+Die Frequenzen $\omega_1$ und $\omega_2$ bei denen die Phasenverschiebung $\frac{\pi}{4}$ beziehungsweise $\frac{3\pi}{4}$ beträgt, 
+berechnen sich nach GLEICHUNG als
+
+\begin{center}
+    $\omega_1 = (2,\~79 \pm 0,\~01) \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+
+    $\omega_2 = (2,\~022 \pm 0,\~008) \cdot 10^{5}$ $\frac{1}{\symup{s}}$.
 \end{center}
 
 Der Fehler nach Gauß errechnet sich dabei nach
 
 \begin{equation}
-    \Delta \omega_{+,-} = \sqrt{\bigg( \frac{\partial \omega_{+,-}}{\partial C} \cdot \Delta C \bigg)^2 + \bigg( \frac{\partial \omega_{+,-}}{\partial L} \cdot \Delta L \bigg)^2 + \bigg( \frac{\partial \omega_{+,-}}{\partial R} \cdot \Delta R \bigg)^2}, 
+    \Delta \omega_{1,2} = \sqrt{\bigg( \frac{\partial \omega_{+,-}}{\partial C} \cdot \Delta C \bigg)^2 + \bigg( \frac{\partial \omega_{+,-}}{\partial L} \cdot \Delta L \bigg)^2 + \bigg( \frac{\partial \omega_{+,-}}{\partial R} \cdot \Delta R \bigg)^2}, 
 \end{equation}
 
 wobei die einzelnen partiellen Ableitungen im Folgenden aufgeführt sind:
 
 \begin{center}
-    $\bigg( \frac{\partial \omega_{+,-}}{\partial C} \bigg)^2 = \Bigg( \dfrac{1}{2L\sqrt{\frac{1}{LC}+\frac{R^2}{4L^2}}C^2} \Bigg)^2$
+    $\bigg( \frac{\partial \omega_{1,2}}{\partial C} \bigg)^2 = \Bigg( \dfrac{1}{2L\sqrt{\frac{1}{LC}+\frac{R^2}{4L^2}}C^2} \Bigg)^2$
 
-    $\bigg( \frac{\partial \omega_{+,-}}{\partial R} \bigg)^2 = \Bigg( \dfrac{R}{4L^2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}} \pm \dfrac{1}{2L} \Bigg)^2$
+    $\bigg( \frac{\partial \omega_{1,2}}{\partial R} \bigg)^2 = \Bigg( \dfrac{R}{4L^2\sqrt{\frac{R^2}{4L^2}+\frac{1}{CL}}} \pm \dfrac{1}{2L} \Bigg)^2$
 
-    $\bigg( \frac{\partial \omega_{+,-}}{\partial L} \bigg)^2 = \Bigg( \mp \dfrac{R}{2L^2}+\dfrac{-\frac{1}{CL^2}-\frac{R^2}{2L^3}}{2\sqrt{\frac{1}{CL}+\frac{R^2}{4L^2}}} \Bigg)^2$.
+    $\bigg( \frac{\partial \omega_{1,2}}{\partial L} \bigg)^2 = \Bigg( \mp \dfrac{R}{2L^2}+\dfrac{-\frac{1}{CL^2}-\frac{R^2}{2L^3}}{2\sqrt{\frac{1}{CL}+\frac{R^2}{4L^2}}} \Bigg)^2$.
 \end{center}
-
-%- = 27kHz      + = 43kHz
-
-Um die experimentellen Werte zu bestimmen, wird die Frequenz gemessen, an denen $U_C \approx 11.8$ V gilt. Diese werden als
-
-\begin{center}
-    $\omega_- = 1,\~69 \cdot 10^{5}$ $\frac{1}{\symup{s}}$
-
-    $\omega_+ = 2,\~70 \cdot 10^{5}$ $\frac{1}{\symup{s}}$
-\end{center}
-
-bestimmt.
 
 \begin{figure}
     \centering
     \includegraphics{build/plot-phase.pdf}
-    \label{fig:phase}
     \caption{Plot und Theoriekurve des Phasenunterschiedes gegen die Frequenz aufgetragen.}
+    \label{fig:phase}
 \end{figure}
+
+%TODO: Gleichung
+Um die experimente$\omega_1 = 2,\~1 \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+
+    $\omega_2 = 2,\~8 \cdot 10^{5}$ $\frac{1}{\symup{s}}$.llen Werte zu bestimmen, werden die Werte in \autoref{tab:var-freq} in einem Plot aufgetragen. Des Weiteren wird in diesem die Theoriekurve, die sich nach GLEICHUNG berechnet, aufgetragen.
+Der entsprechende Plot ist in \autoref{fig:phase} zu sehen.
+Daraus werden die Werte für die Frequenzen abgelesen, bei denen die Phasenverschiebung $\frac{\pi}{4}$ beziehungsweise $\frac{3\pi}{4}$ beträgt. 
+Diese lauten
+
+\begin{center}
+    $\omega_1 = 2,\~1 \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+
+    $\omega_2 = 2,\~8 \cdot 10^{5}$ $\frac{1}{\symup{s}}$.
+\end{center}
