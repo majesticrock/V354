@@ -33,9 +33,9 @@
         \end{equation}
         herleiten. Beim Lösen müssen zwei Fälle unterschieden werden, eine reelle, sowie eine imaginäre Lösung. 
         Lösen der Differentialgleichung ergibt im Allgemeinen
-        \begin{equation} %Das brauch ich in U
+        \begin{equation} 
             \label{eqn:strom_allgemein}
-            I(t) = e^{-2 \pi \mu t} (U_1 e^{i 2 \pi \nu t} + U_2 e^{-i 2 \pi \nu t}),
+            U(t) = e^{-2 \pi \mu t} (U_1 e^{i 2 \pi \nu t} + U_2 e^{-i 2 \pi \nu t}) R,
         \end{equation}
         wobei $\mu = \frac{R}{4 \pi L} $ und $\nu = \frac{1}{2 \pi} \sqrt{\frac{1}{L C} - \frac{R^2}{4 L^2} }$
         substituiert wird.
@@ -48,7 +48,7 @@
             ist, ist die Lösung reell und damit ergibt sich eine gedämpfte, oszilatorische Schwingung, die sich als
             \begin{equation}
                 \label{eqn:reell_lösung}
-                I(t) = A_0 e^{-2 \pi \mu t} \cos(2 \pi \nu t + \eta)
+                U(t) = U_0 e^{-2 \pi \mu t} \cos(2 \pi \nu t + \eta) R
             \end{equation}
             darstellen lässt. Dabei beschreibt die Exponentialfunktion die Einhüllende, während die Kosinusfunktion die Schwingung darstellt.
             Deweiteren kann die Abklingdauer $T_ex$ als das Zeitinverall, nachdem die Amplitude der Schwingung auf den $\frac{1}{e}$-ten Teil
@@ -114,15 +114,13 @@
         \end{equation}
         auf. Der Faktor $q$ um den die Kondensatorspannung erhöht nennt sich Resonanzüberhöhung oder Güte. 
         Sie ist gegeben durch 
-        \begin{equation} %Da gibt es noch ne Formel 1/r sqrt(l/c) = q
+        \begin{equation} 
             \label{eqn:güte}
-            q = \frac {\omega_0} {\omega_+ - \omega_-},
+            q = \frac{1}{\omega_0 R C} = \frac{1}{R} \sqrt{\frac{L}{C}}
         \end{equation}
         wobei $\omega_0^2 = \frac{1}{L C}$.   
-        Die Frequenzen $\omega_+$ und $\omega_-$ sind genau die Frequenzen, bei denen die Kondensatorspannung auf den Bruchteil $\frac{1}{\sqrt{2}}$
-        abgesunken ist. Im Fall einer schwachen Dämpfungen fallen diese Frequenzen mit den Frequenzen $\omega_\text{$1/2$}$ zusammen, bei denen
-        der Winkel $\phi$ gerade $\frac{\pi}{4}$ beziehunsweise $\frac{3 \pi}{4}$ ist.
-        Diese sind gegeben durch
+       Außerdem sind die Frequenzen $\omega_\text{$1/2$}$, bei denen
+        der Winkel $\phi$ gerade $\frac{\pi}{4}$ beziehunsweise $\frac{3 \pi}{4}$ ist, gegeben durch
         \begin{equation}
             \label{eqn:omega12}
             \omega_\text{$1/2$} = \pm \frac{R}{2 L} + \sqrt{\frac{R^2}{4 L^2} + \frac{1}{L C} }.
