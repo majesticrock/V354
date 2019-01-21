@@ -1,6 +1,6 @@
 \section{Zielsetzung}
-    Bei diesem Versuch ist der gedämpte Schwingkreis zu untersuchen. Dabei wird zunächst die Zeitabhängigkeit der Amplitude sowie
-    der Widerdstand des aperiodischen Grenzfalles bestimmt. Anschließend wird die Frequenzabhängigkeit der Amplitude der Kondensatorspannung
+    Bei diesem Versuch ist der gedämpfte Schwingkreis zu untersuchen. Dabei wird zunächst die Zeitabhängigkeit der Amplitude sowie
+    der Widerstand des aperiodischen Grenzfalles bestimmt. Anschließend wird die Frequenzabhängigkeit der Amplitude der Kondensatorspannung
     und der Phasenverschiebung zwischen Kondensator - und Erregerspannung bei angeschlossener periodischer Spannung untersucht.
 \section{Theorie}
     \label{sec:Theorie}
@@ -35,7 +35,7 @@
         Lösen der Differentialgleichung ergibt im Allgemeinen
         \begin{equation} 
             \label{eqn:strom_allgemein}
-            U(t) = e^{-2 \pi \mu t} (U_1 e^{i 2 \pi \nu t} + U_2 e^{-i 2 \pi \nu t}) R,
+            U(t) = e^{-2 \pi \mu t} (U_1 e^{i 2 \pi \nu t} + U_2 e^{-i 2 \pi \nu t}) ,
         \end{equation}
         wobei $\mu = \frac{R}{4 \pi L} $ und $\nu = \frac{1}{2 \pi} \sqrt{\frac{1}{L C} - \frac{R^2}{4 L^2} }$
         substituiert wird.
@@ -45,13 +45,13 @@
                 \label{eqn:bedingung_reell}
                 \frac{1}{L C} > \frac{R^2}{4 L^2}
             \end{equation}
-            ist, ist die Lösung reell und damit ergibt sich eine gedämpfte, oszilatorische Schwingung, die sich als
+            ist, ist die Lösung reell und damit ergibt sich eine gedämpfte, oszillatorische Schwingung, die sich als
             \begin{equation}
                 \label{eqn:reell_lösung}
-                U(t) = U_0 e^{-2 \pi \mu t} \cos(2 \pi \nu t + \eta) R
+                U(t) = U_0 e^{-2 \pi \mu t} \cos(2 \pi \nu t + \eta) 
             \end{equation}
             darstellen lässt. Dabei beschreibt die Exponentialfunktion die Einhüllende, während die Kosinusfunktion die Schwingung darstellt.
-            Deweiteren kann die Abklingdauer $T_ex$ als das Zeitinverall, nachdem die Amplitude der Schwingung auf den $\frac{1}{e}$-ten Teil
+            Deweiteren kann die Abklingdauer $T_\text{ex}$ als das Zeitinverall, nachdem die Amplitude der Schwingung auf den $\frac{1}{e}$-ten Teil
             von der Ausgangsamplitude abgesunken ist, zu
             \begin{equation}
                 \label{eqn:abklingdauer}
@@ -66,7 +66,7 @@
                 \frac{1}{L C} > \frac{R^2}{4 L^2}
             \end{equation}
             gilt, ist $\nu$ imaginär.
-            Diese Lösung weist keine oszilatorischen Anteile mehr auf und somit treten auch keine Schwingungen mehr auf. Die Lösung
+            Diese Lösung weist keine oszillatorischen Anteile mehr auf und somit treten auch keine Schwingungen mehr auf. Die Lösung
             $I(t)$ kann zunächst einen Extremwert erreichen oder sofort monoton gegen $0$ konvergieren.
             Nach hinreichend großer Zeit gilt
             \begin{equation}
