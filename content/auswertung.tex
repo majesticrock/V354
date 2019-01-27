@@ -7,7 +7,7 @@ Zunächst werden die Daten aus \autoref{tab:zeit-amplitude} geplottet, wobei die
 Über diese wird ein Fit der Form
 
 \begin{equation}
-    ln(U_C) = ax + b
+    \ln\bigg(\frac{U_\text{C}}{1 \si{V}}\bigg) = ax + b
 \end{equation}
 
 gelegt. Der entstehende Graph ist in \autoref{fig:zeit-amplitude} zu sehen. 
@@ -17,29 +17,29 @@ gelegt. Der entstehende Graph ist in \autoref{fig:zeit-amplitude} zu sehen.
 \begin{figure}
     \centering
     \includegraphics{build/plot-amplitude.pdf}
-    \caption{Plot und Fit der logarithmisierten Ampltiude in Abhängikeit der Zeit.}
+    \caption{Plot und Fit der logarithmisierten Spannungsampltiude einer gedämpften harmonischen Schwingung in Abhängikeit der Zeit zur Bestimmung des Dämpfungswiderstandes.}
     \label{fig:zeit-amplitude}
 \end{figure}
 
 Die entsprechenden Parameter werden mittels Python 3.7.0 als
 
 \begin{center}
-    $a = (1,\~131 \pm 0,\~008) \cdot 10^{4} \frac{\ln(\symup{V})}{\symup{s}}$
+    $a = (1,\~131 \pm 0,\~008) \cdot 10^{4} \frac{1}{\si{s}}$
 
-    $b = (2,\~23 \pm 0,\~01) \ln(\symup{V})$
+    $b = 2,\~23 \pm 0,\~01$
 \end{center}
 
 bestimmt. Der Kosinus in \eqref{eqn:reell_lösung} liefert immer $1$ beziehungsweise $-1$, da immer nur die Maxima beziehungsweise Minima gemessenen werden.
 Somit gilt die Relation
 
 \begin{center}
-    $R = a \cdot 2L = (79,\~8 \pm 0,\~9)$ $\symup{\Omega}$.
+    $R = a \cdot 2L = (79,\~8 \pm 0,\~9) \cdot 1 \si{V}$ $\symup{\Omega}$.
 \end{center}
 
 Der zugehörige Fehler nach Gauß berechnet sich dabei nach
 
 \begin{equation}
-    \Delta R = 2 \sqrt{ \bigg( L \cdot \Delta a \bigg)^2 + \bigg( a \cdot \Delta L \bigg)^2 }.
+    \Delta R = 2 \cdot 1 \si{V} \cdot \sqrt{ \bigg( L \cdot \Delta a \bigg)^2 + \bigg( a \cdot \Delta L \bigg)^2 }.
 \end{equation}
 
 Der Wert für die Induktivität der Spule $L$ wurde angegeben und ist mit weiteren angegebenen Gerätedaten in \autoref{tab:geraetedaten} zu finden.
@@ -85,7 +85,7 @@ Die Theoriekurve, die sich nach \eqref{eqn:Kondensatorspannung} berechnet, wird 
     \label{fig:guete}
 \end{figure}
 
-Aus diesen Daten lässt sich die Güte $q_\text{exp}$ durch Ablesen als
+Aus den Daten in \autoref{tab:var-freq} lässt sich die Güte $q_\text{exp}$ durch Ablesen des höchsten Amplitudenverhältnisses als
 
 \begin{center}
     $q_\text{exp} = 2,\~56$
@@ -100,7 +100,7 @@ bestimmen. Der zugehörige Theoriewert berechnet sich nach \eqref{eqn:güte} als
 Der Fehler nach Gauß berechnet sich dabei nach
 
 \begin{equation}
-    \Delta q_\text{theo} = \sqrt{\cdot \frac{L}{C}} \cdot \sqrt{ \bigg( \frac{1}{R^2} \cdot \Delta R \bigg)^2 + \bigg(\frac{1}{2RC} \cdot \Delta L \bigg)^2 + \bigg(\frac{L}{2RC^2} \cdot \Delta C \bigg)^2}.
+    \Delta q_\text{theo} = \sqrt{\frac{L}{C}} \cdot \sqrt{ \bigg( \frac{1}{R^2} \cdot \Delta R \bigg)^2 + \bigg(\frac{1}{2RC} \cdot \Delta L \bigg)^2 + \bigg(\frac{L}{2RC^2} \cdot \Delta C \bigg)^2}.
 \end{equation}
 
 Die Resonanzfrequenz wird nach \eqref{eqn:güte} als
@@ -116,19 +116,20 @@ bestimmt, wobei sich der zugehörige Fehler nach Gauß nach
 \end{equation}
 
 berechnet. Zur experimentellen Bestimmung der Resonanzfrequenz wird die Frequenz an der Stelle der maximalen Ampltiude abgelesen.
+Da allerdings es zwei Wertepaare gibt, bei denen $U_\text{C}$ maximal ist, wird der Mittelwert von diesen genommen.
 Diese beträgt
 
 \begin{center}
-    $\omega_\text{res} = 2,\~2 \cdot 10^{5}$ $\frac{1}{\symup{s}}$.
+    $\omega_\text{res} = (2,\~23 \pm 0.01) \cdot 10^{5}$ Hz.
 \end{center}
 
 Die Frequenzen $\omega_1$ und $\omega_2$ bei denen die Phasenverschiebung $\frac{\pi}{4}$ beziehungsweise $\frac{3\pi}{4}$ beträgt, 
 berechnen sich nach \eqref{eqn:omega12} als
 
 \begin{center}
-    $\omega_1 = (2,\~79 \pm 0,\~01) \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+    $\omega_1 = (2,\~79 \pm 0,\~01) \cdot 10^{5}$ Hz
 
-    $\omega_2 = (2,\~022 \pm 0,\~008) \cdot 10^{5}$ $\frac{1}{\symup{s}}$.
+    $\omega_2 = (2,\~022 \pm 0,\~008) \cdot 10^{5}$ Hz.
 \end{center}
 
 Der Fehler nach Gauß errechnet sich dabei nach
@@ -160,7 +161,25 @@ Daraus werden die Werte für die Frequenzen abgelesen, bei denen die Phasenversc
 Diese lauten
 
 \begin{center}
-    $\omega_1 = 2,\~1 \cdot 10^{5}$ $\frac{1}{\symup{s}}$
+    $\omega_\text{1,exp} = (2,\~0 \pm 0,\~25) \cdot 10^{5}$ Hz
 
-    $\omega_2 = 2,\~8 \cdot 10^{5}$ $\frac{1}{\symup{s}}$.
+    $\omega_\text{2,exp} = (2,\~8 \pm 0,\~25) \cdot 10^{5}$ Hz.
 \end{center}
+
+Damit ergibt sich die experimentelle Breite der Resonanzkurve zu
+
+\begin{center}
+    $\omega_\text{2,exp} - \omega_\text{1,exp} = (0,\~8 \pm 0,\~35) \cdot 10^{5}$ Hz
+\end{center}
+
+und die theoretische Breite zu
+
+\begin{center}
+    $\omega_2 - \omega_1 = (0,\~77 \pm 0,\~01) \cdot 10^{5}$ Hz.
+\end{center}
+
+Dabei berechnet sich der zugehörige Fehler nach
+
+\begin{equation}
+    \Delta \omega_{2-1} = \sqrt{ ( 1 \cdot \Delta \omega_2)^2 + ( 1 \cdot \Delta \omega_1 )^2 }.
+\end{equation}

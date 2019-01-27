@@ -22,11 +22,11 @@ for values in werte:
     if(ignore):
         ignore = False
     else:
-        xdata[i] = float(values[0]) * 10**(-6)
+        xdata[i] = float(values[0])
         ydata[i] =np.log(float(values[1]))
         i+=1
 
-x_line = np.linspace(14 * 10**(-6), 217 * 10**(-6))
+x_line = np.linspace(14, 217)
 plt.plot(xdata, ydata, "r.", label="Messwerte")
 popt, pcov = curve_fit(func, xdata, ydata)
 plt.plot(x_line, func(x_line, *popt), "b-", label="Fit")
@@ -34,8 +34,8 @@ plt.plot(x_line, func(x_line, *popt), "b-", label="Fit")
 print(popt)
 print(np.sqrt(pcov))
 
-plt.xlabel(r"$t$ / s")
-plt.ylabel(r"$\ln(U_C)$ / ln(V)")
+plt.xlabel(r"$t$ / µs")
+plt.ylabel(r"$\ln\bigg(\frac{U_\text{C}}{1 \si{V}}\bigg)$")
 plt.legend()
 plt.tight_layout()
 plt.savefig("build/plot-amplitude.pdf")
